@@ -18,7 +18,7 @@ You are reviewing `.agents/` documentation based on what was learned in this con
 **What belongs in each section:**
 - `operations/` = **What you can do** - Domain actions, API endpoints, jobs (how to perform tasks)
 - `reference/` = **Definitions** - Reusable lookups, terminology, no step-by-step instructions
-- `architecture/` = **How things work** - Cross-cutting patterns, not task instructions
+- `codebase/` = **How the code works** - Code descriptions (file roles, layering) and coding standards (error handling, naming, testing patterns)
 - `integrations/` = **External dependencies** - APIs, databases, services this repo connects to
 
 **What makes good docs in this system:**
@@ -33,7 +33,7 @@ You are reviewing `.agents/` documentation based on what was learned in this con
 - `project-overview.md` - Repo role (100 token limit)
 - `operations/` - Domain operations with INDEX.md (500 token limit each)
 - `reference/` - Terminology with INDEX.md (500 token limit each)
-- `architecture/` - Patterns with INDEX.md, includes `integrations/` (500 token limit each)
+- `codebase/` - Code descriptions & standards with INDEX.md, includes `integrations/` (500 token limit each)
 - All INDEX.md files have 200 token limit
 
 **Analyze based on your conversation experience:**

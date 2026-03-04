@@ -111,7 +111,7 @@ Task tool:
   subagent_type: "Explore"
   model: "haiku"
   description: "Doc lookup"
-  prompt: "Follow the template at ~/.xvw-agents/templates/subagents/doc-lookup.md
+  prompt: "Follow the template at ~/.pdds-agents/templates/subagents/doc-lookup.md
 
     Input:
     - keywords: [keywords from Phase 1]
@@ -125,7 +125,7 @@ Task tool:
   subagent_type: "Explore"
   model: "haiku"
   description: "Code lookup"
-  prompt: "Follow the template at ~/.xvw-agents/templates/subagents/code-lookup.md
+  prompt: "Follow the template at ~/.pdds-agents/templates/subagents/code-lookup.md
 
     Input:
     - doc_summary: [paste relevant_docs and patterns from Subagent 1]
@@ -139,7 +139,7 @@ Task tool:
   subagent_type: "Explore"
   model: "haiku"
   description: "Operation lookup"
-  prompt: "Follow the template at ~/.xvw-agents/templates/subagents/operation-lookup.md
+  prompt: "Follow the template at ~/.pdds-agents/templates/subagents/operation-lookup.md
 
     Input:
     - screen_name: [target screen from ticket]
@@ -153,7 +153,7 @@ Task tool:
   subagent_type: "general-purpose"
   model: "sonnet"
   description: "Browser exploration"
-  prompt: "Follow the template at ~/.xvw-agents/templates/subagents/browser-verification.md
+  prompt: "Follow the template at ~/.pdds-agents/templates/subagents/browser-verification.md
 
     Input:
     - navigation_steps: [steps from Subagent 3]
@@ -239,7 +239,7 @@ Keep questions focused and batched (2-3 at a time max).
 
 **Create `.agents/.scratch/investigation-[filename].md`:**
 
-Follow the template at `~/.xvw-agents/templates/investigation-template.md`
+Follow the template at `~/.pdds-agents/templates/investigation-template.md`
 
 Fill in all sections with findings from subagents and interviews. Key sections:
 - **Acceptance Criteria** - Gherkin from Phase 1

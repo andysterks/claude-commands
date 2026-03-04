@@ -99,7 +99,7 @@ Based on category, ask targeted questions using `AskUserQuestion`. Use research 
 - Options: [From research's terminology] + Other
 - multiSelect: true
 
-### For Architecture (patterns/integrations)
+### For Codebase (patterns/integrations)
 
 **Question 1**: "What problem does this pattern/integration solve?"
 - Options: [Infer from research] + Other
@@ -168,7 +168,7 @@ Based on category, generate the appropriate document using templates from `.agen
 - [Links from research]
 ```
 
-### Architecture Template
+### Codebase Template
 ```markdown
 # [Pattern/Integration Name]
 

@@ -67,7 +67,7 @@ For each, capture:
 - location: Where defined or most used
 - frequency: Approximate usage count
 
-## Architecture (Patterns/Integrations)
+## Codebase (Patterns/Integrations)
 
 Look for:
 - Authentication/authorization patterns
@@ -86,13 +86,13 @@ Return as JSON:
 {
   "operations": [...],
   "reference": [...],
-  "architecture": [...]
+  "codebase": [...]
 }
 ```
 
 ## Phase 3: Check Existing Documentation
 
-**Load the structure schema** from `.agents/scripts/structure-schema.json` (or `~/.xvw-agents/templates/agents-lint/structure-schema.json` if not installed locally).
+**Load the structure schema** from `.agents/scripts/structure-schema.json` (or `~/.pdds-agents/templates/agents-lint/structure-schema.json` if not installed locally).
 
 Read all files in each folder listed in `requiredFolders` (except `scripts`) to identify what's already documented.
 
@@ -149,7 +149,7 @@ Scanned codebase and found **[X] documentable items**.
 |----------|-------|-------------------|-------|
 | Operations | X | Y | Z |
 | Reference | X | Y | Z |
-| Architecture | X | Y | Z |
+| Codebase | X | Y | Z |
 
 ### Top Priority Items
 1. [Most referenced undocumented model]

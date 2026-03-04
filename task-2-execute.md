@@ -54,7 +54,7 @@ If no path provided, ask user for the investigation file path.
 - `Testing Strategy` - what tests to write
 - `Browser Verification Recipe` - for UI verification later
 
-**Create journal** at `.agents/.scratch/impl-journal-[TICKET-ID].md` using template: `~/.xvw-agents/templates/impl-journal-template.md`
+**Create journal** at `.agents/.scratch/impl-journal-[TICKET-ID].md` using template: `~/.pdds-agents/templates/impl-journal-template.md`
 
 ## Phase 2: Read ONLY Listed Files
 
@@ -91,7 +91,7 @@ Task tool:
   subagent_type: "general-purpose"
   model: "haiku"
   description: "Fix failing tests"
-  prompt: "Follow the template at ~/.xvw-agents/templates/subagents/test-fix.md
+  prompt: "Follow the template at ~/.pdds-agents/templates/subagents/test-fix.md
 
     Input:
     - test_failures: [paste test output]
@@ -107,21 +107,36 @@ Stop after 3 iterations if still failing - ask user for guidance.
 
 Skip if backend-only. Ask user: "Should I verify in browser?"
 
-If yes, spawn Browser Verification Subagent:
+If yes, **prepare context before spawning** the subagent:
+
+1. Read `.agents/operations/browser-automation.md` (if it exists) and `.agents/operations/login.md`
+2. Extract the `Browser Investigation` and `Reproduction Method` sections from the investigation file
+
+Then spawn Browser Verification Subagent with all context inlined:
 ```
 Task tool:
   subagent_type: "general-purpose"
   model: "sonnet"
   description: "Browser verification"
-  prompt: "Follow the template at ~/.xvw-agents/templates/subagents/browser-verification.md
+  prompt: "Follow the template at ~/.pdds-agents/templates/subagents/browser-verification.md
 
     Input:
     - navigation_steps: [copy from investigation file Browser Verification Recipe]
     - verifications: [copy verification checklist table with Type column]
     - expected_outcomes: {
         primary: '[expected behavior after fix]'
-      }"
+      }
+    - reproduction_method: |
+        [copy the entire Browser Investigation + Reproduction Method sections
+         from the investigation file — includes exact JS commands, store paths,
+         and workarounds that were already proven to work during investigation]
+    - project_browser_guide: |
+        [paste contents of .agents/operations/browser-automation.md here]
+    - login_credentials: |
+        [paste contents of .agents/operations/login.md here]"
 ```
+
+**Why inline?** Subagents start cold with no project context. Telling them to "read file X" wastes turns and risks them skimming or missing key details. Inlining gives them proven commands immediately.
 
 **After subagent returns:**
 1. Log results: "[X] passed, [Y] failed, [Z] uncertain"
@@ -130,7 +145,7 @@ Task tool:
 
 ## Phase 6: Update Investigation File
 
-Append implementation results to the investigation file using template: `~/.xvw-agents/templates/impl-results-template.md`
+Append implementation results to the investigation file using template: `~/.pdds-agents/templates/impl-results-template.md`
 
 ---
 

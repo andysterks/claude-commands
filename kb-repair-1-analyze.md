@@ -28,13 +28,13 @@ Scan the .agents/ directory and report findings in JSON format.
 FIRST: Load the structure schema to determine what's standard vs non-standard.
 Look for the schema in this order:
 1. .agents/scripts/structure-schema.json (if lint scripts installed)
-2. ~/.xvw-agents/templates/agents-lint/structure-schema.json (template location)
+2. ~/.pdds-agents/templates/agents-lint/structure-schema.json (template location)
 
 The schema defines:
 - requiredFiles: files that MUST exist at .agents/ root
 - requiredFolders: folders that MUST exist at .agents/ root
 - optionalItems: items that MAY exist (like .scratch/)
-- nestedRequirements: required subfolders (e.g., architecture/integrations/)
+- nestedRequirements: required subfolders (e.g., codebase/integrations/)
 
 Check for:
 

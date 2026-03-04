@@ -56,14 +56,14 @@ QUESTION TEMPLATES:
 For infrastructure/devops docs (NGINX.md, PM2.md, SSL.md, etc.):
 "Found infrastructure docs: [list]. Where should these go?"
 Options:
-- architecture/devops/ (Recommended)
-- architecture/integrations/
+- codebase/devops/ (Recommended)
+- codebase/integrations/
 - Delete (redundant)
 
 For quickstart/setup docs:
 "Found setup docs: [list]. Where should these go?"
 Options:
-- architecture/ (as deployment.md, setup.md)
+- codebase/ (as deployment.md, setup.md)
 - reference/setup.md
 - Delete (redundant with root README)
 
@@ -77,7 +77,7 @@ Options:
 For technical/api/database docs:
 "Found technical docs: [list]. Where should these go?"
 Options:
-- architecture/
+- codebase/
 - reference/
 - operations/
 - Delete
@@ -104,13 +104,13 @@ Options:
 BUILD REPAIR PLAN as JSON:
 {
   "moves": [
-    {"from": "docs/infrastructure/NGINX.md", "to": "architecture/devops/NGINX.md"}
+    {"from": "docs/infrastructure/NGINX.md", "to": "codebase/devops/NGINX.md"}
   ],
   "deletes": [
     {"path": "docs/technical/DATABASE.md", "reason": "Duplicates root schema"}
   ],
   "creates": [
-    {"path": "architecture/devops/INDEX.md", "template": "index"}
+    {"path": "codebase/devops/INDEX.md", "template": "index"}
   ],
   "merges": [
     {"sources": ["docs/product/OVERVIEW.md"], "target": "product-overview.md"}
@@ -132,7 +132,7 @@ Display the plan in a clear table format:
 ### Files to Move
 | From | To |
 |------|-----|
-| docs/infrastructure/NGINX.md | architecture/devops/NGINX.md |
+| docs/infrastructure/NGINX.md | codebase/devops/NGINX.md |
 
 ### Files to Delete
 | File | Reason |
@@ -140,7 +140,7 @@ Display the plan in a clear table format:
 | docs/technical/DATABASE.md | Duplicates root schema |
 
 ### New INDEX.md Files
-- architecture/devops/INDEX.md
+- codebase/devops/INDEX.md
 
 ### AI-INSTRUCTIONS.md
 - Action: [Keep|Enhance with lazy loading|Replace]
@@ -201,7 +201,7 @@ For each folder that received new files, update its INDEX.md with keyword entrie
 
 If user approved lint scripts:
 1. Create `.agents/scripts/` if missing
-2. Read lint script templates from `~/.xvw-agents/templates/agents-lint/`
+2. Read lint script templates from `~/.pdds-agents/templates/agents-lint/`
 3. If templates don't exist, use embedded minimal versions
 4. Write to `.agents/scripts/`:
    - `lint-docs.js`

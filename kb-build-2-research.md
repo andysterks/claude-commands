@@ -57,7 +57,7 @@ Use this context to:
 
 ### Find the Item
 Parse `.agents/CHECKLIST.md` to find the item:
-- Extract: name, type, category (operations/reference/architecture), file location
+- Extract: name, type, category (operations/reference/codebase), file location
 - If item not found, show available items and ask user to pick one
 
 ### If No Item Specified
@@ -67,7 +67,7 @@ Which item would you like to research?
 
 1. `patient-search` (operations/screen)
 2. `DICOM` (reference/term)
-3. `authentication-flow` (architecture/pattern)
+3. `authentication-flow` (codebase/pattern)
 4. `Patient` (reference/model)
 5. `image-viewer` (operations/screen)
 
@@ -124,7 +124,7 @@ Read `.agents/app-config.json` for startup instructions:
     "ready_url": "http://localhost:8080"
   },
   "backend": {
-    "repo_marker": "XVWeb.csproj",
+    "repo_marker": "PDDS.csproj",
     "search_paths": ["~/source/repos", "C:\\Users\\*\\source\\repos"],
     "branch": "master",
     "start": "dotnet run",
@@ -204,7 +204,7 @@ Create `.agents/.scratch/[item-name]-research.json` (includes visual context if 
     "route": "/patients/search"
   },
   "product_context": {
-    "product_name": "XVWeb",
+    "product_name": "PDDS",
     "project_type": "frontend",
     "relevant_capabilities": ["Search", "Patient management"],
     "relevant_user_roles": ["Front desk staff", "Dentists"]
@@ -219,7 +219,7 @@ Create `.agents/.scratch/[item-name]-research.json` (includes visual context if 
   "rag_context": {
     "related_docs": [
       {"title": "Patient Model", "path": "reference/patient.md"},
-      {"title": "API Authentication", "path": "architecture/auth.md"}
+      {"title": "API Authentication", "path": "codebase/auth.md"}
     ],
     "terminology": {
       "Patient": "Individual receiving dental care",
@@ -254,7 +254,7 @@ Output a summary:
 
 ### Item Details
 - **Type**: [screen/endpoint/model/etc.]
-- **Category**: [operations/reference/architecture]
+- **Category**: [operations/reference/codebase]
 - **Location**: [file:line]
 
 ### Code Context Gathered

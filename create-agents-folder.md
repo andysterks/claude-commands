@@ -32,13 +32,13 @@ Use `AskUserQuestion` to confirm:
 
 ## Phase 3: Create Structure
 
-**Load the structure schema** from `~/.xvw-agents/templates/agents-lint/structure-schema.json` - this is the single source of truth for the `.agents/` folder structure.
+**Load the structure schema** from `~/.pdds-agents/templates/agents-lint/structure-schema.json` - this is the single source of truth for the `.agents/` folder structure.
 
 The schema defines:
 - `requiredFiles` - Files to create at `.agents/` root
 - `requiredFolders` - Folders to create at `.agents/` root (each gets an `INDEX.md`)
 - `optionalItems` - Items that may exist (like `.scratch/`)
-- `nestedRequirements` - Required subfolders (e.g., `architecture/integrations/`)
+- `nestedRequirements` - Required subfolders (e.g., `codebase/integrations/`)
 
 **Create the structure based on the schema:**
 1. Create `.agents/` directory
@@ -62,7 +62,7 @@ This documentation helps you understand [PRODUCT_NAME]. Read this file first.
 2. **This repo**: Read `project-overview.md` for this repo's role
 3. **Find operations**: Search `operations/INDEX.md` for domain operations
 4. **Find terminology**: Search `reference/INDEX.md` for definitions
-5. **Find patterns**: Search `architecture/INDEX.md` for cross-cutting concerns
+5. **Find patterns**: Search `codebase/INDEX.md` for code descriptions and standards
 6. **Load on-demand**: Only load docs as needed for your task
 
 ## Documentation Structure
@@ -80,7 +80,7 @@ Run `node .agents/scripts/lint-docs.js` to check limits before committing.
 | project-overview.md | 100 | Repo role (brief!) |
 | operations/*.md | 500 | Domain operations |
 | reference/*.md | 500 | Terminology |
-| architecture/*.md | 500 | Patterns |
+| codebase/*.md | 500 | Code descriptions & standards |
 | **/INDEX.md | 200 | Keyword indexes |
 
 ## Templates
@@ -91,17 +91,17 @@ Group related operations by domain. Example: users.md covers create, update, del
 ### Reference (reference/[concept].md)
 Definitions and lookup tables. No how-to steps.
 
-### Architecture (architecture/[pattern].md)
-Cross-cutting patterns: auth, caching, error handling, etc.
+### Codebase (codebase/[topic].md)
+Code descriptions (file roles, service layers, how components connect) and coding standards (error handling conventions, naming patterns, testing approaches). If you need to understand how the code works or what pattern to follow, look here.
 
-### Integrations (architecture/integrations/[service].md)
+### Integrations (codebase/integrations/[service].md)
 External services this repo depends on: APIs, databases, queues.
 
 ## Writing Rules
 
 1. **Operations = what you can do**: UI "flows", Domain actions, API endpoints, jobs
 2. **Reference = definitions**: Reusable lookups, generic domain knowledge, no action steps
-3. **Architecture = how things work**: Patterns, not step-by-step
+3. **Codebase = how the code works**: Code descriptions and coding standards
 4. **Brief is better**: Stay under token limits, link for details
 ```
 
@@ -156,9 +156,9 @@ Search this file for keywords. Add entries as documentation grows.
 ### Lint Scripts
 
 Copy lint scripts and schema from templates:
-- `~/.xvw-agents/templates/agents-lint/lint-docs.js` → `.agents/scripts/lint-docs.js`
-- `~/.xvw-agents/templates/agents-lint/lint-structure.js` → `.agents/scripts/lint-structure.js`
-- `~/.xvw-agents/templates/agents-lint/structure-schema.json` → `.agents/scripts/structure-schema.json`
+- `~/.pdds-agents/templates/agents-lint/lint-docs.js` → `.agents/scripts/lint-docs.js`
+- `~/.pdds-agents/templates/agents-lint/lint-structure.js` → `.agents/scripts/lint-structure.js`
+- `~/.pdds-agents/templates/agents-lint/structure-schema.json` → `.agents/scripts/structure-schema.json`
 
 The `structure-schema.json` in `.agents/scripts/` becomes the local source of truth for this repo's structure validation.
 
@@ -248,8 +248,8 @@ When complete, output:
 - .agents/project-overview.md
 - .agents/operations/INDEX.md
 - .agents/reference/INDEX.md
-- .agents/architecture/INDEX.md
-- .agents/architecture/integrations/INDEX.md
+- .agents/codebase/INDEX.md
+- .agents/codebase/integrations/INDEX.md
 - .agents/scripts/lint-docs.js
 - .agents/scripts/lint-structure.js
 - .agents/.scratch/ (gitignored)
@@ -260,12 +260,12 @@ When complete, output:
 ### Next Steps
 1. Fill in product-overview.md with product details
 2. Run `node .agents/scripts/lint-docs.js` to verify setup
-3. Add operations/reference/architecture docs as needed
+3. Add operations/reference/codebase docs as needed
 ```
 
 ## Rules
 
-- **DO NOT fill in operations/reference/architecture content** - only create empty INDEX.md stubs
+- **DO NOT fill in operations/reference/codebase content** - only create empty INDEX.md stubs
 - **Always create all folders** even if the project type doesn't obviously need them
 - **Keep INDEX.md minimal** - just header and example comment
 - **project-overview.md must be under 100 tokens** - enforce brevity
@@ -274,9 +274,9 @@ When complete, output:
 
 ## Appendix A: Template Location
 
-All templates are in `~/.xvw-agents/templates/agents-lint/`:
+All templates are in `~/.pdds-agents/templates/agents-lint/`:
 - `lint-docs.js` - Token limit validation
 - `lint-structure.js` - Structure validation
 - `structure-schema.json` - **Single source of truth** for folder structure
 
-If templates don't exist, the user needs to install the XVWeb.Agents shared commands first.
+If templates don't exist, the user needs to install the PDDS.Agents shared commands first.

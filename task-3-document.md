@@ -99,8 +99,8 @@ Record all answers - these feed directly into Phase 4 proposals.
 ### Docs Validated
 | Doc | Result |
 |-----|--------|
-| .agents/architecture/testing.md | ✅ Followed test patterns |
-| .agents/architecture/code-standards.md | ✅ Used BadRequestException correctly |
+| .agents/codebase/testing.md | ✅ Followed test patterns |
+| .agents/codebase/code-standards.md | ✅ Used BadRequestException correctly |
 ```
 
 **Only flag discrepancies** - if implementation doesn't match a doc:
